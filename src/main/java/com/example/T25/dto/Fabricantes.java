@@ -27,7 +27,7 @@ public class Fabricantes {
 	
 	@OneToMany
 	@JoinColumn(name="fabricante_id")
-	private List<Fabricantes> fabricante_id;
+	private List<Articulos> articulos;
 	
 	//Constructores
 	
@@ -35,7 +35,7 @@ public class Fabricantes {
 		
 	}
 	
-	public Fabricantes(Long id, String nombre, String trabajo, int salario) {
+	public Fabricantes(Long id, String nombre) {
 		this.id=id;
 		this.nombre=nombre;
 	}
@@ -57,13 +57,13 @@ public class Fabricantes {
 	}
 	
 	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Fabricantes")
-	public List<Fabricantes> getFabricantes_id() {
-		return fabricante_id;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "fabricante_id")
+	public List<Articulos> getFabricantes_id() {
+		return articulos;
 	}
 
-	public void setFabricantes_id(List<Fabricantes> fabricante_id) {
-		this.fabricante_id = fabricante_id;
+	public void setFabricantes_id(List<Articulos> articulo) {
+		this.articulos = articulo;
 	}
 
 	//To string personalizado
